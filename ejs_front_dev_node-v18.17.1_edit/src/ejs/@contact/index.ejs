@@ -1,0 +1,126 @@
+<!DOCTYPE html><% const pageMeta = {
+  type: 'article',
+  path: '../',
+  rootpath: '',
+  name: 'ページ名',
+  name_parent: '',
+  name_grand: '',
+  description: '',
+} %>
+<html lang="ja">
+  <head>
+    <%- include('../_common/_ga_tag', { meta: pageMeta }) %>
+    <%- include('../_common/_head', { meta: pageMeta }) %>
+  </head>
+  <body>
+    <%- include('../_common/_ga_noscript', { meta: pageMeta }) %>
+    <div class="l-container" id="container">
+      <%- include('../_layout/_header', { meta: pageMeta }) %>
+      <main class="l-main" id="main">
+
+        <!-- section -->
+        <section id="form">
+          <div class="">
+            <div class="l-wrap">
+              
+              <!---->
+              <input type="text" name="name" autocomplete="name" placeholder="姓名">
+              <input type="text" name="family-name" autocomplete="family-name" placeholder="姓">
+              <input type="text" name="given-name" autocomplete="given-name" placeholder="名">
+              <input type="text" name="email" autocomplete="email">
+              <input type="text" name="postal-code" autocomplete="postal-code">
+              <input type="text" name="name" autocomplete="address-level1">
+              <input type="text" name="name" autocomplete="address-level2">
+              <input type="text" name="name" autocomplete="address-line1">
+              <input type="text" name="name" autocomplete="address-line2">
+              <input type="text" name="name" autocomplete="organization">
+              <input type="text" name="name" autocomplete="off">
+              
+
+              <div class="c-form u-pt_80 u-pb_80">
+                <form action="">
+                  <table class="c-form_table--type01">
+                    <tbody>
+                      <tr>
+                        <th>タイトル<span>必須</span></th>
+                        <td>
+                          <input type="text" name="name" autocomplete="name">
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>タイトル<span>必須</span></th>
+                        <td>
+                          <input type="text" name="name" autocomplete="name">
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>チェック<span>必須</span></th>
+                        <td>
+                          <span class="c-form_checkbox wpcf7-form-control-wrap" data-name="field-checkbox">
+                              <span class="wpcf7-form-control wpcf7-checkbox">
+                                  <span class="wpcf7-list-item first">
+                                      <label>
+                                          <input type="checkbox" name="field-checkbox[]" value="選択肢1" />
+                                          <span class="wpcf7-list-item-label">選択肢1</span>
+                                      </label>
+                                  </span>
+                                  <span class="wpcf7-list-item">
+                                      <label>
+                                          <input type="checkbox" name="field-checkbox[]" value="選択肢2" />
+                                          <span class="wpcf7-list-item-label">選択肢2</span>
+                                      </label>
+                                  </span>
+                                  <span class="wpcf7-list-item last">
+                                      <label>
+                                          <input type="checkbox" name="field-checkbox[]" value="選択肢3" />
+                                          <span class="wpcf7-list-item-label">選択肢3</span>
+                                      </label>
+                                  </span>
+                              </span>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>ラジオ<span class="">任意</span></th>
+                        <td>
+                          <span class="c-form_radio wpcf7-form-control-wrap" data-name="field-radio">
+                              <span class="wpcf7-form-control wpcf7-radio">
+                                  <span class="wpcf7-list-item first">
+                                      <label>
+                                          <input type="radio" name="field-radio" value="選択肢1" checked="checked" />
+                                          <span class="wpcf7-list-item-label">選択肢1</span>
+                                      </label>
+                                  </span>
+                                  <span class="wpcf7-list-item">
+                                      <label>
+                                          <input type="radio" name="field-radio" value="選択肢2" />
+                                          <span class="wpcf7-list-item-label">選択肢2</span>
+                                      </label>
+                                  </span>
+                                  <span class="wpcf7-list-item last">
+                                      <label>
+                                          <input type="radio" name="field-radio" value="選択肢3" />
+                                          <span class="wpcf7-list-item-label">選択肢3</span>
+                                      </label>
+                                  </span>
+                              </span>
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </form>
+              </div>
+
+
+            </div>
+          </div>
+        </section>
+        <!-- /section -->
+
+
+      </main>
+      <%- include('../_layout/_footer', { meta: pageMeta }) %>
+    </div><!--/l-container-->
+  </body>
+</html>

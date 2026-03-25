@@ -1,0 +1,90 @@
+@use 'global/mixin' as m;
+@use 'global/variable' as v;
+
+.u-w {
+  &--25p {
+    width: 25%;
+
+    &--sp {
+      @include m.sp {
+        width: 25%;
+      }
+    }
+
+    &--pc {
+      @include m.pc {
+        width: 25%;
+      }
+    }
+  }
+
+  &--33p {
+    width: 33.33%;
+
+    &--sp {
+      @include m.sp {
+        width: 33.33%;
+      }
+    }
+
+    &--pc {
+      @include m.pc {
+        width: 33.33%;
+      }
+    }
+  }
+  &--50p {
+    width: 50%;
+
+    &--sp {
+      @include m.sp {
+        width: 50%;
+      }
+    }
+
+    &--pc {
+      @include m.pc {
+        width: 50%;
+      }
+    }
+  }
+  &--100p {
+    width: 100%;
+
+    &--pc {
+      @include m.pc {
+        width: 100%;
+      }
+    }
+
+    &--sp {
+      @include m.sp {
+        width: 100%;
+      }
+    }
+  }
+
+  &_btn {
+    &--300 {
+      width: min(100%, 300px);
+    }
+    &--290 {
+      width: 290px;
+      @include m.sp {
+        width: 29rem;
+      }
+    }
+    &--220 {
+      width: 220px;
+      @include m.sp {
+        width: 22rem;
+      }
+    }
+    &--170 {
+      width: 170px;
+      @include m.sp {
+        width: 12rem;
+      }
+    }
+  }
+}

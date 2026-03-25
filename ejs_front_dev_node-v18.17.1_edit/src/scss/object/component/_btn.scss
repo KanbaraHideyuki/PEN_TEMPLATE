@@ -1,0 +1,9 @@
+@use 'global/mixin' as m;
+@use 'global/variable' as v;
+
+.c-btn {
+  &_primary{
+    display: inline-block;
+    padding: .5 2em;
+  }
+}

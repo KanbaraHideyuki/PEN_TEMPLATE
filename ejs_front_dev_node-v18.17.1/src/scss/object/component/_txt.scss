@@ -1,0 +1,12 @@
+@use 'global/mixin' as m;
+@use 'global/variable' as v;
+
+.c-txt {
+  @include m.fz(16);
+  &--14 {
+    @include m.fz(14);
+  }
+  &--18 {
+    @include m.fz(18);
+  }
+}

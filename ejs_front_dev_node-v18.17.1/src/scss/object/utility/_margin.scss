@@ -1,0 +1,35 @@
+@use 'global/mixin' as m;
+@use 'global/variable' as v;
+
+.u-m {
+  &_auto {
+    margin: 0 auto;
+    &--pc {
+      @include m.pc {
+        margin: 0 auto;
+      }
+    }
+    &--sp {
+      @include m.sp {
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.u_mb_2em{
+  @include m.pc {
+    margin-bottom: 2em;
+  }
+}
+.u_mb_p_sp{
+  @include m.sp {
+    //margin-bottom: 2.75rem;
+  }
+}
+
+//margin
+@include m.space-loop(".u-mt_", "margin-top");
+@include m.space-loop(".u-mb_", "margin-bottom");
+@include m.space-loop(".u-ml_", "margin-left");
+@include m.space-loop(".u-mr_", "margin-right");

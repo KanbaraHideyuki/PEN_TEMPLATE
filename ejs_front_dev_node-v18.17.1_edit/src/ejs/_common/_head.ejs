@@ -1,0 +1,42 @@
+<% const pageMeta = {
+  url: 'https://',
+  site_name: 'サイト名',
+  og_image: 'assets/img/common/ogp.jpg',
+  separator: ' | ',
+} %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  <title><% if (meta.name) { %><%= meta.name %><%= pageMeta.separator %><% } %><% if (meta.name_parent) { %><%= meta.name_parent %><%= pageMeta.separator %><% } %><% if (meta.name_grand) { %><%= meta.name_grand %><%= pageMeta.separator %><% } %><%= pageMeta.site_name %></title>
+  <meta name="description" content="<%= meta.description %>">
+  <link rel="canonical" href="<%= pageMeta.url %><%= meta.rootpath %>">
+  <!-- OGP -->
+  <meta property="og:type" content="<%= meta.type %>">
+  <meta property="og:title" content="<% if (meta.name) { %><%= meta.name %><%= pageMeta.separator %><% } %><% if (meta.name_parent) { %><%= meta.name_parent %><%= pageMeta.separator %><% } %><% if (meta.name_grand) { %><%= meta.name_grand %><%= pageMeta.separator %><% } %><%= pageMeta.site_name %>">
+  <meta property="og:description" content="<%= meta.description %>">
+  <meta property="og:site_name" content="<%= pageMeta.site_name %>">
+  <meta property="og:url" content="<%= pageMeta.url %>">
+  <meta property="og:image" content="<%= pageMeta.url %><%= pageMeta.og_image %>">
+  <meta property="og:locale" content="ja_JP">
+  <!-- OGP:twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:description" content="<%= meta.description %>">
+
+  <link rel="icon" href="<%= meta.path %>assets/img/common/favicon.ico"><!-- 32x32 -->
+  <link rel="icon" href="<%= meta.path %>assets/img/common/favicon.svg" type="image/svg+xml"><!-- svg -->
+  <link rel="apple-touch-icon" href="<%= meta.path %>assets/img/common/apple-touch-icon.png"><!-- 180x180 -->
+  
+  <!-- css -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" media="print" onload='this.media="all"'>
+  <% if (meta.path === './') { %><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/><% } %>
+  <link rel="stylesheet" href="<%= meta.path %>assets/css/style.css">
+
+  <!-- js -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script><!-- inview.js-->
+  <% if (meta.path === './') { %><script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script><% } %>
+  <script src="<%= meta.path %>assets/js/script.js" defer></script>

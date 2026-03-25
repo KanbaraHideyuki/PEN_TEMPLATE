@@ -1,0 +1,80 @@
+<!DOCTYPE html><% const pageMeta = {
+  type: 'website',
+  path: './',
+  rootpath: '',
+  name: '',
+  name_parent: '',
+  name_grand: '',
+  description: '',
+} %>
+<html lang="ja">
+  <head>
+    <%- include('_common/_ga_tag', { meta: pageMeta }) %>
+    <%- include('_common/_head', { meta: pageMeta }) %>
+  </head>
+  <body>
+    <%- include('_common/_ga_noscript', { meta: pageMeta }) %>
+    <div class="l-container" id="container">
+      <%- include('_layout/_header', { meta: pageMeta }) %>
+      <main class="l-main" id="main">
+
+        <div class="p-indexHero">
+          <div class="p-indexHero_inner">
+
+            <div class="swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <picture>
+                    <source srcset="./assets/img/index/indexHero_01_sp.webp 1x, ./assets/img/index/indexHero_01_sp@2x.webp 2x" width="750" height="300" media="(max-width:767px)" type="image/webp">
+                    <source srcset="./assets/img/index/indexHero_01_sp.png 1x, ./assets/img/index/indexHero_01_sp@2x.png 2x" media="(max-width:767px)" type="image/png">
+                    <source srcset="./assets/img/index/indexHero_01.webp 1x, ./assets/img/index/indexHero_01@2x.webp 2x" media="(min-width:768px)" type="image/webp">
+                    <source srcset="./assets/img/index/indexHero_01.png 1x, ./assets/img/index/indexHero_01@2x.png 2x" media="(min-width:768px)" type="image/png">
+                    <img src="./assets/img/index/indexHero_01.png" fetchpriority="high" width="1400" height="600" alt="タイトル">
+                  </picture>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+        <!-- section -->
+        <section id="lead">
+          <div class="p-indexLead">
+            <div class="l-wrap">
+              <div class="p-indexLead_lead c-border_after">
+                <h2>タイトル</h2>
+                <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                <figure>
+                  <picture>
+                    <source srcset="./assets/img/index/indexHero_01_sp.webp 1x, ./assets/img/index/indexHero_01_sp@2x.webp 2x" media="(max-width:767px)" type="image/webp">
+                    <source srcset="./assets/img/index/indexHero_01_sp.png 1x, ./assets/img/index/indexHero_01_sp@2x.png 2x" media="(max-width:767px)" type="image/png">
+                    <source srcset="./assets/img/index/indexHero_01.webp 1x, ./assets/img/index/indexHero_01@2x.webp 2x" media="(min-width:768px)" type="image/webp">
+                    <source srcset="./assets/img/index/indexHero_01.png 1x, ./assets/img/index/indexHero_01@2x.png 2x" media="(min-width:768px)" type="image/png">
+                    <img src="./assets/img/index/indexHero_01.png" loading="lazy" decoding="async" width="1400" height="600" alt="タイトル">
+                  </picture>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- /section -->
+
+        <!-- section -->
+        <section id="about">
+          <div class="p-indexAbout">
+            <div class="l-wrap">
+              <div class="p-indexAbout_lead">
+                <h2>タイトル</h2>
+                <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- /section -->
+
+      </main>
+      <%- include('_layout/_footer', { meta: pageMeta }) %>
+    </div><!--/l-container-->
+  </body>
+</html>

@@ -1,0 +1,40 @@
+@use 'global/mixin' as m;
+@use 'global/variable' as v;
+
+.c-frame {
+  &_shadow {
+    width: 100%;
+    position: relative;
+    &:before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      box-shadow: v.$shadow;
+      mix-blend-mode: multiply;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &Inner {
+      position: relative;
+    }
+
+    &--radius {
+      @extend .c-frame_shadow;
+      &:before {
+        border-radius: 10px;
+        @include m.sp {
+          border-radius: 0.5rem;
+        }
+      }
+    }
+  }
+
+  &_radius {
+    border-radius: 10px;
+    overflow: hidden;
+    @include m.sp {
+      border-radius: 0.5rem;
+    }
+  }
+}

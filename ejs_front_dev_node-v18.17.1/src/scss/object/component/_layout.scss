@@ -1,0 +1,81 @@
+@use 'global/mixin' as m;
+@use 'global/variable' as v;
+
+.c-layout {
+  &2col{
+    display: flex;
+    flex-wrap: wrap;
+    .item{
+      @include m.pc{
+        width: calc(520 / 1100 * 100%);
+        margin-bottom: calc(60 / 1100 * 100%);
+        &:not(:nth-child(2n)){
+          margin-right: calc(60 / 1100 * 100%);
+        }
+        &:last-child,.item:nth-last-child(2):nth-child(odd) {
+          margin-bottom: 0;
+        }
+      }
+      @include m.sp{
+        
+      }
+    }
+  }
+  &3col{
+    display: flex;
+    flex-wrap: wrap;
+    .item{
+      @include m.pc{
+        width: calc(340 / 1100 * 100%);
+        margin-bottom: calc(40 / 1100 * 100%);
+        &:not(:nth-child(3n)){
+          margin-right: calc(40 / 1100 * 100%);
+        }
+        &:nth-child(3n+1):nth-last-child(-n+3),&:nth-child(3n+1):nth-last-child(-n+3) ~ .item{
+          margin-bottom: 0;
+        }
+      }
+      @include m.sp{
+        
+      }
+    }
+  }
+  &4col{
+    display: flex;
+    flex-wrap: wrap;
+    .item{
+      @include m.pc{
+        width: calc(260 / 1100 * 100%);
+        margin-bottom: calc(20 / 1100 * 100%);
+        &:not(:nth-child(4n)){
+          margin-right: calc(20 / 1100 * 100%);
+        }
+        &:nth-child(4n+1):nth-last-child(-n+4),&:nth-child(4n+1):nth-last-child(-n+4) ~ .item{
+          margin-bottom: 0;
+        }
+      }
+      @include m.sp{
+        
+      }
+    }
+  }
+  &5col{
+    display: flex;
+    flex-wrap: wrap;
+    .item{
+      @include m.pc{
+        width: calc(200 / 1100 * 100%);
+        margin-bottom: calc(25 / 1100 * 100%);
+        &:not(:nth-child(5n)){
+          margin-right: calc(25 / 1100 * 100%);
+        }
+        &:nth-child(5n+1):nth-last-child(-n+5),&:nth-child(5n+1):nth-last-child(-n+5) ~ .item{
+          margin-bottom: 0;
+        }
+      }
+      @include m.sp{
+        
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@use 'global/mixin' as m;
+@use 'global/variable' as v;
+
+.c-border {
+  border: 0.1rem solid;
+
+  &_top {
+    border-top: 0.1rem solid;
+  }
+
+  &_bottom {
+    border-bottom: 0.1rem solid;
+  }
+
+  &_left {
+    border-left: 0.1rem solid;
+  }
+
+  &_right {
+    border-right: 0.1rem solid;
+  }
+}

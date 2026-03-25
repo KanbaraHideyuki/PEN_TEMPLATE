@@ -1,0 +1,48 @@
+@use 'global/mixin' as m;
+@use 'global/variable' as v;
+
+.c-border {
+  border: 0.1rem solid;
+
+  &_top {
+    border-top: 0.1rem solid;
+  }
+
+  &_bottom {
+    border-bottom: 0.1rem solid;
+  }
+
+  &_left {
+    border-left: 0.1rem solid;
+  }
+
+  &_right {
+    border-right: 0.1rem solid;
+  }
+  &_before {
+    position: relative;
+    &:before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border-style: solid;
+      border-width: 0.1rem;
+    }
+  }
+  &_after {
+    position: relative;
+    &:after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border-style: solid;
+      border-width: 0.1rem;
+    }
+  }
+}

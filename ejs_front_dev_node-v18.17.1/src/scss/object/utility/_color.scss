@@ -1,0 +1,34 @@
+@use 'global/mixin' as m;
+@use 'global/variable' as v;
+
+$colors: (
+  "base": v.$base_color,
+  "base_dk": v.$base_color_dk,
+  "black": v.$base_black
+);
+
+.u-color {
+  &_txt {
+    @each $property, $value in $colors {
+      &--#{$property} {
+        color: #{$value};
+      }
+    }
+  }
+
+  &_bg {
+    @each $property, $value in $colors {
+      &--#{$property} {
+        background-color: #{$value};
+      }
+    }
+  }
+
+  &_border {
+    @each $property, $value in $colors {
+      &--#{$property} {
+        border-color: #{$value};
+      }
+    }
+  }
+}

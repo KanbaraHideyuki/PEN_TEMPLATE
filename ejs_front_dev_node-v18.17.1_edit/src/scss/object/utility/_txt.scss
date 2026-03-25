@@ -1,0 +1,67 @@
+@use 'global/mixin' as m;
+@use 'global/variable' as v;
+
+.u-txt {
+  
+  &_weight {
+    &--light {
+      font-weight: 300;
+    }
+    &--normal {
+      font-weight: 400;
+    }
+    &--medium {
+      font-weight: 500;
+    }
+    &--bold {
+      font-weight: 700;
+    }
+  }
+
+  &_align {
+    &--center {
+      text-align: center;
+      &--pc {
+        @include m.pc {
+          text-align: center;
+        }
+      }
+      &--sp {
+        @include m.sp {
+          text-align: center;
+        }
+      }
+    }
+    &--right {
+      text-align: right;
+      &--pc {
+        @include m.pc {
+          text-align: right;
+        }
+      }
+      &--sp {
+        @include m.sp {
+          text-align: right;
+        }
+      }
+    }
+  }
+  
+  &_indent{
+    display: inline-block;
+    &--1{
+      padding-left: 1em;
+      text-indent: -1em;
+    }
+  }
+  
+  &_underline {
+    text-decoration: underline;
+  }
+
+  &_vertical {
+    &--middle {
+      vertical-align: middle;
+    }
+  }
+}

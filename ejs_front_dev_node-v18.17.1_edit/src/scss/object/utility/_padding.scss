@@ -1,0 +1,29 @@
+@use 'global/mixin' as m;
+@use 'global/variable' as v;
+
+.u-p {
+  &_none {
+    padding: initial;
+    &--pc {
+      @include m.pc {
+        padding: initial;
+      }
+    }
+    &--sp {
+      @include m.sp {
+        padding: initial;
+      }
+    }
+  }
+  &l{
+    &--1{
+      padding-left: 1.2em;
+    }
+  }
+}
+
+//padding
+@include m.space-loop(".u-pt_", "padding-top");
+@include m.space-loop(".u-pb_", "padding-bottom");
+@include m.space-loop(".u-pl_", "padding-left");
+@include m.space-loop(".u-pr_", "padding-right");

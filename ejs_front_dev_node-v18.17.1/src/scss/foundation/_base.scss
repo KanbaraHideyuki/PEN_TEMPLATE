@@ -1,0 +1,34 @@
+@use 'global/mixin' as m;
+@use 'global/variable' as v;
+
+html {
+  font-size: 62.5%;
+  @include m.sp {
+    font-size: calc(100vw / 37.5);
+  }
+}
+
+body {
+  color: v.$base_black;
+  font-size: 1.6rem;
+  //font-family: v.$notoSans;
+  font-weight: 400;
+  font-feature-settings: 'palt';
+  letter-spacing: 0.1rem;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  position: relative;
+  overflow: hidden;
+}
+
+
+body.is-fixed{
+	position: fixed !important;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	overflow: scroll;
+}

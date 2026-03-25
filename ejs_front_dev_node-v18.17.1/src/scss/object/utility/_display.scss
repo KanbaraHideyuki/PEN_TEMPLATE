@@ -1,0 +1,46 @@
+@use 'global/mixin' as m;
+@use 'global/variable' as v;
+
+.u-d {
+  &n {
+    display: none;
+    &--pc {
+      @include m.pc {
+        display: none !important;
+      }
+    }
+
+    &--tab {
+      @include m.tab {
+        display: none !important;
+      }
+    }
+
+    &--sp {
+      @include m.sp {
+        display: none !important;
+      }
+    }
+  }
+
+  &b {
+    &--pc {
+      display: none;
+      @include m.pc {
+        display: block;
+      }
+    }
+    &--tab {
+      display: none;
+      @include m.tab {
+        display: block;
+      }
+    }
+    &--sp {
+      display: none;
+      @include m.sp {
+        display: block;
+      }
+    }
+  }
+}

@@ -1,0 +1,124 @@
+@mixin pc($width: 768px) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin pcOver($width: 1160px) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin lwOver($width: 1500px) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin sp($width: 767px) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+
+
+
+@mixin rad($radius){
+  border-radius: $radius * 1px;
+  @include sp {
+    border-radius: $radius * 0.05rem;
+  }
+}
+
+// vw fz ----------------------------
+
+// 上記のvwを利用したフォントサイズの指定
+@mixin fz($font_size: 10) {
+  font-size: $font_size * 1px; //vw非対応の場合の保険
+  @include pc {
+    font-size: calc($font_size / 1160 * 100vw); //フォントをvw指定
+  }
+  @include pcOver {
+    font-size: $font_size * 1px;
+  }
+  @include sp {
+    //font-size: vw($font_size, 750); //フォントをvw指定
+    @if $font_size == 10 {
+      font-size: 1.0rem;
+    }
+    @else if $font_size == 12 {
+      font-size: 1.2rem;
+    }
+    @else if $font_size == 14 {
+      font-size: 1.3rem;
+    }
+    @else if $font_size == 16 {
+      font-size: 1.4rem;
+    }
+    @else if $font_size == 18 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+
+/*----------------------------
+ padding margin
+----------------------------*/
+
+//例｜5・10の倍数でクラスを作成する
+@mixin space-loop($className, $styleName) {
+	@for $i from 0 through 250 {
+			@if $i % 5 == 0 or $i % 10 == 0 {
+					#{$className + $i} {
+              @include pc{
+                #{$styleName}: #{$i}px;
+                //#{$styleName}: #{$i / 1200 * 100}vw;
+              }
+							@include sp{
+								//#{$styleName}: #{$i / 750 * 100}vw;
+                #{$styleName}: #{$i * 0.05}rem;
+							}
+					}
+          #{$className + $i + "--pc"} {
+            @include pc{
+              #{$styleName}: #{$i}px;
+            }
+          }
+          #{$className + $i + "--sp"} {
+            @include sp{
+              #{$styleName}: #{$i * 0.05}rem;
+            }
+          }
+			}
+	}
+}
+
+/*----------------------------
+ padding margin
+----------------------------*/
+
+@mixin pt($px_size,$viewsize:1160) {
+  padding-top: $px_size * 1px;
+  @include sp{padding-top: $px_size * 0.05rem;}
+}
+@mixin pb($px_size, $viewsize:1160) {
+  padding-bottom: $px_size * 1px;
+  @include sp{padding-bottom: $px_size * 0.05rem;}
+}
+@mixin mb($px_size, $viewsize:1160) {
+  margin-bottom: $px_size * 1px;
+  @include sp{margin-bottom: $px_size * 0.05rem;}
+}
+@mixin mt($px_size, $viewsize:1160) {
+  margin-top: $px_size * 1px;
+  @include sp{margin-top: $px_size * 0.05rem;}
+}

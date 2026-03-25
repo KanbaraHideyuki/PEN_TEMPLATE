@@ -1,0 +1,420 @@
+@use 'global/mixin' as m;
+@use 'global/variable' as v;
+
+.c-form {
+  &_thWrap{
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  &_required{
+    //color: v.$base_red;
+    font-size: .6em;
+    vertical-align: text-top;
+  }
+  &_required--txt{
+    color: #FFF;
+    //background-color: v.$base_red;
+    padding: .1em .4em;
+  }
+  &_optional{
+
+  }
+
+  input[type='text']{
+    //リセットここから //
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    background: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    //
+    border: 1px solid rgba(0, 0, 0, 0.16);
+  }
+
+  input[type='text']:focus{
+    outline: 2px solid #3498db;
+    border-radius: 4px;
+  }
+  input[type='checkbox']{
+
+  }
+  input[type='radio']{
+
+  }
+  // &_input,
+	// &_button,
+	// &_select,
+	// &_textarea {
+	// 	-webkit-appearance: none;
+	// 	-moz-appearance: none;
+	// 	appearance: none;
+	// 	background: transparent;
+	// 	border: none;
+	// 	border-radius: 0;
+	// 	font: inherit;
+	// 	outline: none;
+	// 	&::placeholder {
+	// 		color: #bbbbc1 !important;
+	// 	}
+	// 	&:focus-visible {
+  //     outline: -webkit-focus-ring-color auto 2px;
+  //     //outline: v.$base_cyan auto 5px;
+  //   }
+	// }
+
+	// &_textarea {
+	// 	resize: vertical;
+	// }
+	// &_input[type='checkbox'],
+	// &_input[type='radio'] {
+	// 	display: none;
+	// }
+	// &_input[type='submit'],
+	// &_input[type='button'],
+	// &_button,
+	// &_select {
+	// 	cursor: pointer;
+	// }
+	// &_select::-ms-expand {
+	// 	display: none;
+	// }
+	// &_select{
+	// 	width: 100%;
+	// 	max-width: 100% !important;
+	// 	option{
+	// 		width: 100%;
+	// 		max-width: 100% !important;
+	// 	}
+	// }
+  //リセットここまで//////////////////////////////
+  
+
+  &_input{
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: .5em 1em;
+    line-height: calc(28/16);
+    
+    //color: v.$base_color;
+    background-color: #FFF;
+    //border: 1px solid v.$base_border;
+    &--auto{
+      @extend .c-form_input;
+      display: inline-block;
+    }
+    &--s{
+      @extend .c-form_input;
+      display: inline-block;
+      width: 25%;
+      @include m.sp{
+        width: calc(100% - 3rem);
+      }
+    }
+    &--m{
+      @extend .c-form_input;
+      display: inline-block;
+      width: 45%;
+      @include m.sp{
+        width: 100%;
+      }
+    }
+    &--l{
+      @extend .c-form_input;
+      display: inline-block;
+      width: 75%;
+      @include m.sp{
+        width: 100%;
+      }
+    }
+    &--zip{
+      @extend .c-form_input;
+      display: inline-block;
+      width: calc(100% - 1em);
+    }
+  }
+  &_radio{
+    .wpcf7-list-item{
+      display: inline-block;
+      margin: 0;
+      @include m.pc{
+        &:not(:last-child){
+          margin-right: 1em;
+        }
+      }
+      label{
+        display: inline-block;
+      }
+      input[type=radio] + span {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+        padding-left: 2.2em;
+      }
+      input[type=radio] + span:after {
+        position: absolute;
+        content: "";
+        width: 1.4em;
+        height: 1.4em;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        border: 1px solid #000;
+        border-radius: 50%;
+      }
+      input[type=radio] + span:before {
+        position: absolute;
+        content: "";
+        width: 1.4em;
+        height: 1.4em;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background-color: #3498db;
+        border: 5px solid #FFF;
+        border-radius: 50%;
+        opacity: 0;
+      }
+      input[type=radio]:checked + span:before {
+        opacity: 1;
+      }
+    }
+  }
+  &_select{
+    //display: inline-block;
+    //width: auto;
+    border: 1px solid #ADADAD;
+    padding: .4em 3em .4em 1.2em;
+    border-radius: 4px;
+    box-sizing: border-box;
+    &Wrap{
+      position: relative;
+      display: inline-block;
+      margin-left: 1em;
+      &:before{
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 0;
+        top: 50%;
+        right: 1em;
+        border-width: .7em .4em 0;
+        //border-color: v.$base_color transparent transparent transparent;
+        border-style: solid;
+        transform: translateY(-50%);
+
+      }
+    }
+  }
+  &_checkbox{
+    .wpcf7-list-item{
+      @include m.pc{
+        &:not(:last-child){
+          margin-right: 1em;
+        }
+      }
+      label{
+        display: inline-block;
+      }
+      input[type=checkbox]{
+        display: inline-block;
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+      }
+      input[type=checkbox] + span {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+        padding-left: 2.2em;
+      }
+      input[type=checkbox] + span:after {
+        position: absolute;
+        content: "";
+        width: 1.3em;
+        height: 1.3em;
+        border-radius: 4px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-45%);
+        border: 1px solid #000;
+        background-color: #FFF;
+      }
+      input[type=checkbox] + span:before {
+        position: absolute;
+        z-index: 1;
+        content: "";
+        width: .4em;
+        height: .7em;
+        top: 50%;
+        left: .5em;
+        border-width: 0 2px 2px 0;
+        border-style: solid;
+        //border-color: v.$base_color;
+        transform: translate(0, -50%) rotate(45deg);
+        opacity: 0;
+      }
+      input[type=checkbox]:checked + span:before {
+        opacity: 1;
+      }
+    }
+    >span{
+      display: inline-block;
+      
+    }
+  }
+  &_textarea{
+    display: block;
+    width: 100%;
+    padding: .5em 1em;
+    line-height: calc(28/16);
+    //color: v.$base_color;
+    background-color: #FFF;
+    //border: 1px solid v.$base_border;
+  }
+  &_file{
+    display: block;
+    width: 100%;
+    padding: 1em 1em;
+    background-color: #FFF;
+    //border: 1px dotted v.$base_border;
+    &:before{
+      display: block;
+      font-weight: 700;
+      content: "ファイルをドラッグ＆ドロップもしくは";
+      padding-bottom: .5em;
+    }
+  }
+  &_at{
+    line-height: calc(46/16);
+    margin: 0 .2em;
+  }
+  &_zipRow{
+    >p{
+      @include m.sp{
+        flex: 1;
+      }
+    }
+    >div{
+
+    }
+  }
+  .wpcf7-spinner{
+    display: none;
+  }
+
+  &_btn{
+    &Wrap{
+      display: flex;
+      @include m.pc{
+        justify-content: center;
+        > *{
+          &:not(:last-child){
+            margin-right: 6em;
+          }
+        }
+        
+      }
+      @include m.sp{
+        flex-direction: column;
+        align-items: center;
+        > *{
+          &:not(:last-child){
+            margin-bottom: 1em;
+          }
+        }
+      }
+    }
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    min-width: 11.2em;
+    max-width: 17.635em;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 100vw;
+    //border-color: v.$base_color;
+    color: #FFF;
+    //background-color: v.$base_color;
+    @include m.fz(16);
+    //font-family: v.$yumin;
+    padding: .6em 1em;
+    line-height: calc(28/16);
+    @include m.pc{
+      transition: color v.$anime, background-color v.$anime;
+      &:hover{
+        //color: v.$base_color;
+        background-color: #FFF;
+      }
+    }
+    &--beige{
+      @extend .c-form_btn;
+      width: initial;
+      min-width: 11.2em;
+      //font-family: v.$yugo;
+      border: none;
+      color: #FFF;
+      //background-color: v.$base_beige_70;
+      border-radius: 0;
+      @include m.pc{
+        transition: color v.$anime, background-color v.$anime;
+        &:hover{
+          color: #FFF;
+          //background-color: v.$base_beige;
+        }
+      }
+    }
+  }
+
+  //テーブル
+  &_table{
+    width: 100%;
+    border-collapse: collapse;
+    &--type01{
+      @extend .c-form_table;
+      tr{
+        th,td{
+          @include m.sp{
+            display: block;
+          }
+        }
+        th{
+          width: 100%;
+          font-weight: 700;
+          @include m.pc{
+            width: 28%;
+            padding-top: .5em;
+            padding-bottom: .5em;
+          }
+          @include m.sp{
+            padding-top: 1em;
+          }
+        }
+        td{
+          width: 100%;
+          @include m.pc{
+            width: 72%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+          }
+          @include m.sp{
+            padding-top: .5em;
+            padding-bottom: 1em;
+          }
+        }
+      }
+    }
+    &--type02{
+      @extend .c-form_table;
+    }
+  }
+}

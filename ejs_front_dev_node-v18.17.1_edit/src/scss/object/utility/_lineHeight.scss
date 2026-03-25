@@ -1,0 +1,14 @@
+@use 'global/mixin' as m;
+@use 'global/variable' as v;
+
+.u-lh {
+  &--1 {
+    line-height: 1;
+  }
+  &--1_5 {
+    line-height: 1.5;
+  }
+  &--1_6 {
+    line-height: 1.6;
+  }
+}

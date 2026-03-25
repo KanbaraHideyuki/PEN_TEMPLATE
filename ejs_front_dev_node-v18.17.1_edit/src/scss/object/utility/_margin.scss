@@ -1,0 +1,24 @@
+@use 'global/mixin' as m;
+@use 'global/variable' as v;
+
+.u-m {
+  &_auto {
+    margin-inline: auto;
+    &--pc {
+      @include m.pc {
+        margin-inline: auto;
+      }
+    }
+    &--sp {
+      @include m.sp {
+        margin-inline: auto;
+      }
+    }
+  }
+}
+
+//margin
+@include m.space-loop(".u-mt_", "margin-top");
+@include m.space-loop(".u-mb_", "margin-bottom");
+@include m.space-loop(".u-ml_", "margin-left");
+@include m.space-loop(".u-mr_", "margin-right");

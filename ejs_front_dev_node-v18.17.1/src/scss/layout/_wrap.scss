@@ -1,0 +1,12 @@
+@use 'global/mixin' as m;
+
+.l-wrap {
+  width: min(100%, 1080px);
+  padding-left: 40px;
+  padding-right: 40px;
+  margin: auto;
+  @include m.sp {
+    padding-left: calc(40 / 750 * 100%);
+    padding-right: calc(40 / 750 * 100%);
+  }
+}

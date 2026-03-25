@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+//color
+$base_color: #005bac;
+$base_color_dk: darken($base_color, 8%);
+$base_color_li: lighten($base_color, 8%);
+$base_black: #000000;
+
+
+//transition
+$anime: .3s ease;
+
+//box-shadow
+$shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
+
+//font
+//$notoSans: 'Noto Sans JP', sans-serif;
+//$yugo: $yugo: "游ゴシック体", YuGothic, "游ゴシック medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, sans-serif;
+//$yumin: 'Yu Mincho',YuMincho, "游明朝体", 'Hiragino Mincho Pro', serif;
