@@ -1,0 +1,22 @@
+.c-flex{
+  &-2{
+    .item:last-child,.item:nth-last-child(2):nth-child(odd) {
+      margin-bottom: 0;
+    }
+  }
+  &-3{
+    .item:nth-child(3n+1):nth-last-child(-n+3),.item:nth-child(3n+1):nth-last-child(-n+3) ~ .item{
+      margin-bottom: 0;
+    }
+  }
+  &-4{
+    .item:nth-child(4n+1):nth-last-child(-n+4),.item:nth-child(4n+1):nth-last-child(-n+4) ~ .item{
+      margin-bottom: 0;
+    }
+  }
+  &-5{
+    .item:nth-child(5n+1):nth-last-child(-n+5),.item:nth-child(5n+1):nth-last-child(-n+5) ~ .item{
+      margin-bottom: 0;
+    }
+  }
+}

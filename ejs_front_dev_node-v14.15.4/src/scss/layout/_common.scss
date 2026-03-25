@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+
+.l-container{
+	display: block;
+	width: 100%;
+	min-height: 100%;
+	float: none;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.l-main{
+	&_inner{
+		padding-top: 80px;
+		@include sp {
+			padding-top: 60px;
+		}
+	}
+}
+
+
+.l-wrap {
+  width: 100%;
+  margin: 0 auto;
+  &_inner {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 15px;
+		padding-right: 15px;
+    @include pc {
+      max-width: 1230px; // 各デザイン毎に変更
+    }
+    @include sp {
+      padding-left: 4vw;
+			padding-right: 4vw;
+    }
+  }
+}

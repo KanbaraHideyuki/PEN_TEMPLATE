@@ -1,0 +1,77 @@
+<!-- prettier-ignore -->
+<% const pageMeta = { 
+  title: '',
+  directory: '',
+  keywords: '',
+  description: '',
+  ogType: 'website',
+  path: './',
+  p_title: '',
+  p_directory: '',
+  pp_title: '',
+  pp_directory: '',
+} 
+%>
+<!-- prettier-ignore-end -->
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# prefix属性: http://ogp.me/ns/prefix属性#">
+    <%- include('./_common/_ga_tag');%>
+    <%- include('./_meta/_head', { meta: pageMeta }) %>
+  </head>
+  <body>
+    
+    <div class="l-container" id="container">
+      <%- include('./_layout/_header', { meta: pageMeta });%>
+
+      <main class="l-main" id="main">
+        <div class="l-main_inner">
+
+          <section class="p-indexHero">
+            <div class="p-indexHero_inner">
+              <ul class="p-indexHero_slide main_slide">
+                <li><img src="https://placehold.jp/3d4070/ffffff/1200x800.jpg" alt=""></li>
+                <li><img src="https://placehold.jp/3d4070/ffffff/1200x800.jpg" alt=""></li>
+                <li><img src="https://placehold.jp/3d4070/ffffff/1200x800.jpg" alt=""></li>
+                <li><img src="https://placehold.jp/3d4070/ffffff/1200x800.jpg" alt=""></li>
+              </ul>
+            </div>
+          </section>
+    
+          <!-- section -->
+          <section id="about">
+            <div class="p-indexAbout fadeInUp js-scroll">
+              <div class="l-wrap_inner">
+                <div class="p-indexAbout_item">
+                  <h2 class="c-ttl-headline">タイトル</h2>
+                  <p class="c-txt-16">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- /section -->
+
+
+        </div><!-- l-main_inner -->
+      </main><!-- l-main -->
+
+      <%- include('./_layout/_footer', { meta: pageMeta });%>
+    </div><!--/#container-->
+
+    <script src="./assets/js/script.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script type="text/javascript">
+    jQuery(function () {
+      jQuery(".main_slide").slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
+        fade: true,
+        dots: true,
+        arrows: true,
+      });
+    });
+    </script>
+
+  </body>
+</html>

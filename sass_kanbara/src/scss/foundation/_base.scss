@@ -1,0 +1,75 @@
+html {
+	//font-size: 62.5%; /*1em=10px */
+	@include sp {
+    font-size: calc(100vw / 37.5);
+  }
+}
+
+body{
+	position: relative;
+	line-height: 100%;
+	color: $base_color;
+	font-family: $font_yugo;
+	background-color: #FFF;
+}
+
+
+body.fixed{
+	position: fixed !important;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	overflow: scroll;
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+         -o-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+img{
+	width: 100%;
+  max-width: 100%;
+}
+
+
+.pc_visible{
+	@include sp {
+		display: none !important;
+	}
+}
+.sp_visible{
+	@include pc {
+		display: none !important;
+	}
+}
+.xs_visible{ 
+	@include pc {
+		display: none !important;
+	}
+	@include sp {
+		display: none !important;
+	}
+}
+.xs_hidden{ 
+	@include xs {
+		display: none !important;
+	}
+}
+
+.anchor{
+	padding-top: 80px;
+	margin-top: -80px;
+	@include sp {
+		padding-top: 60px;
+		margin-top: -60px;
+	}
+}
+
+
+

@@ -1,0 +1,44 @@
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<% if (meta.path === './') { %><title>サイトタイトル</title>
+  <% } else if(meta.path === '../') { %><title><%= meta.title %> | サイトタイトル</title>
+<% } else if(meta.path === '../../') { %><title><%= meta.title %> | <%= meta.p_title %> | サイトタイトル</title>
+<% } else if(meta.path === '../../../') { %><title><%= meta.title %> | <%= meta.pp_title %> | <%= meta.p_title %> | サイトタイトル</title>
+<% } else { %><title><%= meta.title %> | サイトタイトル</title><% } %>
+<meta name="keywords" content="">
+<meta name="description" content="<%= meta.description %>">
+<!-- ※ OGP 基本設定 -->
+<meta property="og:type" content="トップページはwebsite、個別ページはarticle" />
+<% if (meta.path === './') { %><meta property="og:title" content="サイトタイトル" />
+<% } else if(meta.path === '../') { %><meta property="og:title" content="<%= meta.title %> | サイトタイトル" />
+<% } else if(meta.path === '../../') { %><meta property="og:title" content="<%= meta.title %> | <%= meta.p_title %> | サイトタイトル" />
+<% } else if(meta.path === '../../../') { %><meta property="og:title" content="<%= meta.title %> | <%= meta.pp_title %> | <%= meta.p_title %> | サイトタイトル" />
+<% } else { %><meta property="og:title" content="<%= meta.title %> | サイトタイトル" /><% } %>
+<meta property="og:description" content="<%= meta.description %>" />
+<% if (meta.path === './') { %><meta property="og:url" content="サイトURL" />
+<% } else if(meta.path === '../') { %><meta property="og:url" content="サイトURL/<%= meta.directory %>" />
+<% } else if(meta.path === '../../') { %><meta property="og:url" content="サイトURL/<%= meta.p_directory %><%= meta.directory %>" />
+<% } else if(meta.path === '../../../') { %><meta property="og:url" content="サイトURL/<%= meta.p_directory %><%= meta.pp_directory %><%= meta.directory %>" />
+<% } else { %><meta property="og:url" content="サイトURL/<%= meta.directory %>" /><% } %>
+<meta property="og:site_name" content="サイト名" />
+<meta property="og:image" content="サムネイル画像のURL" />
+<meta property="og:locale" content="ja_JP" />
+<!-- ※ OGP Twitter共通設定 -->
+<meta name="twitter:card" content="summary_large_image" />
+<!--<meta name="twitter:image" content="Twitter用の画像URL" /> summaryの場合の画像設定-->
+
+<% if (meta.path === './') { %><link rel="canonical" href="正規化URL" />
+<% } else if(meta.path === '../') { %><link rel="canonical" href="正規化URL/<%= meta.directory %>" />
+<% } else if(meta.path === '../../') { %><link rel="canonical" href="正規化URL/<%= meta.p_directory %><%= meta.directory %>" />
+<% } else if(meta.path === '../../../') { %><link rel="canonical" href="正規化URL/<%= meta.p_directory %><%= meta.pp_directory %><%= meta.directory %>" />
+<% } else { %><link rel="canonical" href="正規化URL/<%= meta.directory %>" /><% } %>
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" href="<%= meta.path %>assets/img/common/apple-touch-icon.png">
+<link rel="icon" href="<%= meta.path %>assets/img/common/favicon.ico">
+
+<!-- css -->
+<link rel="stylesheet" href="<%= meta.path %>assets/css/style.css" />
+<!-- js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

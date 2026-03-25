@@ -1,0 +1,15 @@
+.c-table{
+	width: 100%;
+	border-collapse: collapse;
+	$this: &;
+	&-base{
+		@extend #{$this};
+		tbody{
+			tr{
+				th,td{
+					
+				}
+			}
+		}
+	}
+}

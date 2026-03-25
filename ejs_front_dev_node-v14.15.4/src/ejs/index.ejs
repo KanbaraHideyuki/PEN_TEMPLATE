@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# prefix属性: http://ogp.me/ns/prefix属性#">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <!-- ※ OGP 基本設定 -->
+    <meta property="og:type" content="トップページはwebsite、個別ページはarticle" />
+    <meta property="og:title" content="サイトタイトル" />
+    <meta property="og:description" content="サイト説明文" />
+    <meta property="og:url" content="サイトURL(絶対パス)" />
+    <meta property="og:site_name" content="サイト名" />
+    <meta property="og:image" content="サムネイル画像のURL(絶対パス)" />
+    <meta property="og:locale" content="ja_JP" />
+    <!-- ※ OGP Twitter共通設定 -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <!--<meta name="twitter:image" content="Twitter用の画像URL" /> summaryの場合の画像設定-->
+    <link rel="canonical" href="正規化URL">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="canonical" href="">
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+    <link rel="icon" href="./favicon.ico">
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  </head>
+  <body>
+    
+    <div class="l-container" id="container">
+      <%- include('_layout/_header') %>
+
+      <main class="l-main" id="main">
+        <div class="l-main_inner">
+
+          <section class="p-hero">
+            <div class="p-hero_inner">
+              <ul class="p-hero_slide main_slide">
+                <li><img src="https://placehold.jp/3d4070/ffffff/1200x800.jpg" alt=""></li>
+                <li><img src="https://placehold.jp/3d4070/ffffff/1200x800.jpg" alt=""></li>
+                <li><img src="https://placehold.jp/3d4070/ffffff/1200x800.jpg" alt=""></li>
+                <li><img src="https://placehold.jp/3d4070/ffffff/1200x800.jpg" alt=""></li>
+              </ul>
+            </div>
+          </section>
+    
+          <!-- section -->
+          <section id="about" class="fadeInUp js-scroll">
+            <div class="p-about c-sec">
+              <div class="l-wrap_inner">
+                <div class="p-about_block">
+                  <h2 class="c-title_head">タイトル</h2>
+                  <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- /section -->
+
+          <!-- section -->
+          <section id="about" class="fadeInUp js-scroll">
+            <div class="p-about c-sec">
+              <div class="l-wrap_inner">
+                <div class="p-about_block">
+                  <h2 class="c-title_head">タイトル</h2>
+                  <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- /section -->
+
+
+
+
+
+
+        </div><!-- l-main_inner -->
+      </main><!-- l-main -->
+
+      <%- include('_layout/_footer') %>
+    </div><!--/#container-->
+
+    <script src="./assets/js/script.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script type="text/javascript">
+    jQuery(function () {
+      jQuery(".main_slide").slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
+        fade: true,
+        dots: true,
+        arrows: true,
+      });
+    });
+    </script>
+
+  </body>
+</html>

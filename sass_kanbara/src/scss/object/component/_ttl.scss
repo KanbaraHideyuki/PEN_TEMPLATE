@@ -1,0 +1,15 @@
+.c-ttl{
+	font-weight: 700;
+	&_head{
+		@extend .c-ttl;
+		$lh: 54/32;
+		line-height: $lh;
+		@include fz(40);
+	}
+	&_subhead{
+		@extend .c-ttl;
+		$lh: 40/26;
+		line-height: $lh;
+		@include fz(26);
+	}
+}

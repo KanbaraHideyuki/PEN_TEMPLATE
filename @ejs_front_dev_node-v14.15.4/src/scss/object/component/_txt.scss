@@ -1,0 +1,16 @@
+.c-txt{
+	line-height: calc(28/16);
+	$this: &;
+	&-14{
+		@extend #{$this};
+		@include fz(14);
+	}
+	&-16{
+		@extend #{$this};
+		@include fz(16);
+	}
+	&-16{
+		@extend #{$this};
+		@include fz(18);
+	}
+}

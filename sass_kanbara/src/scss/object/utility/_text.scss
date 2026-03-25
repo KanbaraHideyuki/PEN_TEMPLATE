@@ -1,0 +1,20 @@
+.u-text {
+  &_indent {
+    padding-right: 1em;
+    text-indent: -1em;
+  }
+  /* white-space */
+  &_nowrap{
+    white-space: nowrap;
+  }
+  /* 上付き文字 */
+  &_sup{
+    font-size: .6em;
+    vertical-align: super;
+  }
+/* 下付き文字 */
+  &_sub{
+    font-size: .6em;
+    vertical-align: baseline;
+  }
+}

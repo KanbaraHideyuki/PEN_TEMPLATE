@@ -1,0 +1,8 @@
+.l-main{
+	&_inner{
+		padding-top: 80px;
+		@include sp {
+			padding-top: 60px;
+		}
+	}
+}

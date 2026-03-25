@@ -1,0 +1,9 @@
+.p-index{
+  &Hero{
+    
+  }
+  &About{
+    @include pt(80);
+    @include pb(80);
+  }
+}

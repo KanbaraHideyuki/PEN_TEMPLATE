@@ -1,0 +1,29 @@
+@import 'mixin';
+
+//color
+$base_color: #072752;
+$base_color_li: lighten($base_color, 8%);
+$base_color_dk: darken($base_color, 8%);
+
+
+//link color
+$txt-link: #085ab3;//#4481eb
+$txt-hover: #437bb8;//#05befe
+
+
+//フォント指定
+$font_yugo: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic",'ヒラギノ角ゴシック','Hiragino Sans','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', Meiryo,sans-serif;
+$font_yumin: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体','Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
+$NotoSansJP: 'Noto Sans JP','ヒラギノ角ゴシック','Hiragino Sans','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', Meiryo,sans-serif;
+
+//---------------------------
+
+
+a:link,a:visited{
+	color: $txt-link;
+	text-decoration: none;
+}
+a:hover,a:active {
+	color: $txt-hover;
+	text-decoration: none;
+}

@@ -1,0 +1,123 @@
+.c-title{
+	font-weight: 700;
+	&_head{
+		@extend .c-title;
+		$lh: 54/32;
+		line-height: $lh;
+		font-size: 40px;
+	}
+	&_subhead{
+		@extend .c-title;
+		$lh: 40/26;
+		line-height: $lh;
+		font-size: 26px;
+	}
+}
+
+
+.c-sec{
+  padding-top: 80px;
+  @include sp{
+    @include pt-sp(40);
+  }
+	$lh:28/16;
+	line-height: $lh;
+}
+
+
+.c-flex2{
+	.item:last-child,.item:nth-last-child(2):nth-child(odd) {
+		margin-bottom: 0;
+	}
+}
+.c-flex3{
+	.item:nth-child(3n+1):nth-last-child(-n+3),.item:nth-child(3n+1):nth-last-child(-n+3) ~ .item{
+		margin-bottom: 0;
+	}
+}
+.c-flex4{
+	.item:nth-child(4n+1):nth-last-child(-n+4),.item:nth-child(4n+1):nth-last-child(-n+4) ~ .item{
+		margin-bottom: 0;
+	}
+}
+.c-flex5{
+	.item:nth-child(5n+1):nth-last-child(-n+5),.item:nth-child(5n+1):nth-last-child(-n+5) ~ .item{
+		margin-bottom: 0;
+	}
+}
+
+
+
+.c-list{
+	>li{
+		position: relative;
+		padding-left: 1.2em;
+	}
+	&-dot{
+		&:before{
+			position: absolute;
+			content: "・";
+			left: 0;
+		}
+	}
+	&-kome{
+		&:before{
+			position: absolute;
+			content: "※";
+			left: 0;
+		}
+	}
+}
+
+.c-link{
+	&-txt{
+		&:link,&:visited{
+			text-decoration: underline;
+		}
+		&:hover,&:active{
+			text-decoration: underline;
+		}
+	}
+	&-zoom{
+		img{
+			transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+		}
+		&:hover{
+			img{
+				transform: scale(1.1);
+				transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+			}
+		}
+	}
+}
+
+.c-listCount{
+	counter-reset: num;
+	.num{
+		&:before{
+			counter-increment: num;
+			content: '0' counter(num);
+		}
+	}
+}
+
+
+.c-table{
+	width: 100%;
+	border-collapse: collapse;
+	tbody{
+		tr{
+			th,td{
+				padding: 0.5em 0;
+				vertical-align: top;
+			}
+		}
+	}
+}
+
+
+
+.c-btn{
+	cursor: pointer;
+	text-decoration: none;
+}

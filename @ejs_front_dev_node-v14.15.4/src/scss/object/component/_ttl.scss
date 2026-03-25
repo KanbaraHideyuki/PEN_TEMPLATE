@@ -1,0 +1,9 @@
+.c-ttl{
+	font-weight: 700;
+	$this: &;
+	&-headline{
+		@extend #{$this};
+		line-height: calc(40/26);
+		@include fz(26);
+	}
+}

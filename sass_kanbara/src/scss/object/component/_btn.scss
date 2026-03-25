@@ -1,0 +1,10 @@
+.c-btn{
+	cursor: pointer;
+	text-decoration: none;
+	$this: &;
+	&_base{
+		@extend #{$this};
+		color: #FFF;
+		background-color: $base_color;
+	}
+}

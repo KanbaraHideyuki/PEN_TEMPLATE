@@ -1,0 +1,34 @@
+.c-link{
+	&_txt{
+		&:link,&:visited{
+			text-decoration: underline;
+		}
+		&:hover,&:active{
+			text-decoration: underline;
+		}
+	}
+	&_zoom{
+		img{
+			transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+		}
+		&:hover{
+			img{
+				transform: scale(1.1);
+				transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+			}
+		}
+	}
+}
+
+
+
+a:hover img.img_opacity {
+	opacity: 0.75;
+	filter: alpha(opacity=75);
+	-webkit-transition:0.2s linear;
+	transition:0.2s linear;
+}
+a img.img_opacity {
+	-webkit-transition:0.2s linear;
+	transition:0.2s linear;
+}

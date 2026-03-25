@@ -1,0 +1,166 @@
+
+
+// break popint
+
+@mixin pc($width: 768px) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+
+
+@mixin lw {
+  @media screen and (min-width: 1230px) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media screen and (min-width: 768px) and (max-width: 1000px) {
+    @content;
+  }
+}
+
+@mixin sp($width: 767px) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin xs($width: 320px) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+
+
+// font-size
+@function get-vw($size, $viewport:375){
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}
+@mixin fz-vw($font_size:10){
+  font-size: $font_size * 1px;
+  font-size: get-vw($font_size);
+}
+
+
+// vw
+@mixin w-mod($px_size, $viewsize:1000) {
+  width: $px_size * 1px;
+  width: get_vw($px_size, $viewsize);
+}
+@mixin w-sp($px_size, $viewsize:375) {
+  width: $px_size * 1px;
+  width: get_vw($px_size, $viewsize);
+}
+@mixin pt-mod($px_size, $viewsize:1000) {
+  padding-top: $px_size * 1px;
+  padding-top: get_vw($px_size, $viewsize);
+}
+@mixin pt-sp($px_size, $viewsize:375) {
+  padding-top: $px_size * 1px;
+  padding-top: get_vw($px_size, $viewsize);
+}
+@mixin pb-mod($px_size, $viewsize:1000) {
+  padding-bottom: $px_size * 1px;
+  padding-bottom: get_vw($px_size, $viewsize);
+}
+@mixin pb-sp($px_size, $viewsize:375) {
+  padding-bottom: $px_size * 1px;
+  padding-bottom: get_vw($px_size, $viewsize);
+}
+@mixin mb-mod($px_size, $viewsize:1000) {
+  margin-bottom: $px_size * 1px;
+  margin-bottom: get_vw($px_size, $viewsize);
+}
+@mixin mb-sp($px_size, $viewsize:375) {
+  margin-bottom: $px_size * 1px;
+  margin-bottom: get_vw($px_size, $viewsize);
+}
+@mixin mt-mod($px_size, $viewsize:1000) {
+  margin-top: $px_size * 1px;
+  margin-top: get_vw($px_size, $viewsize);
+}
+@mixin mt-sp($px_size, $viewsize:375) {
+  margin-top: $px_size * 1px;
+  margin-top: get_vw($px_size, $viewsize);
+}
+
+////// ▼flex //////
+
+@mixin flex {
+  display: flex;
+}
+
+@mixin flex-w {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin flex-a {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-w-a{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+@mixin flex-w-js {
+	display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@mixin flex-w-jc {
+	display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@mixin flex-w-a-j{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+@mixin hide_txt{
+	text-indent: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+@mixin p-center{
+  position: absolute;
+	width: 100%;
+	height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  filter: alpha(opacity=($opacity * 100));
+}
+
+@mixin bg-gradient($angle:180deg, $start_clr:rgba(0, 66, 221,1), $end_clr: rgba(0, 170, 255,1) ) {
+  background: -moz-linear-gradient((90deg - $angle), $start_clr, $end_clr);
+  background: -webkit-linear-gradient((90deg - $angle), $start_clr, $end_clr);
+  background: linear-gradient($angle, $start_clr, $end_clr);
+}
+@mixin text-gradient($angle: 45deg, $color: rgba(0, 66, 221,1), $amount: rgba(0, 170, 255,1)) {
+  color: $color;
+  background: -webkit-linear-gradient($angle, $color, adjust-hue($color, $amount));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  display: inline-block;
+}
+
+//サイト固有のミックスイン

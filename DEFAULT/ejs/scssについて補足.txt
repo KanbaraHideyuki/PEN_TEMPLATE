@@ -1,0 +1,29 @@
+コーディングガイドラインのscssの構造についてですが
+projectの使い方の例としては
+/about/ページ用に
+_about.scssを作成して使うといった様に
+各ページ専用のscssファイルを作成していくイメージです。
+以下、画像とテキストが横並びになるレイアウトの使用例です。
+font-size等はc-〇〇で運用しつつ、paddingや配置などはp-〇〇で運用している想定の形です。
+各案件によっては、c-〇〇で統一して使える内容もあると思いますので
+後述のNGのような形にならなければ大丈夫です！
+<div class="p-about">
+  <div class="p-about_cont">
+    <div class="p-about_contBox">
+      <p class="p-about_contHeading c-heading">見出し</p>
+      <p class="p-about_contText c-text">ダミーテキストが入ります。</p>
+    </div>
+    <div class="p-about_contPic">
+      <img src="〇〇" alt="">
+    </div>
+  </div>
+</div>
+
+以下のようなscssの書き方は基本的にNGとなります。
+.c-box {
+  .p-about_text {
+    line-height: 1.6;
+  }
+}
+↑のようにcomponent用ファイルなのにprojectのclassが入れ子になるような書き方は
+しないようお気をつけください。（project内にcomponentを入れ子にするのも同様です）

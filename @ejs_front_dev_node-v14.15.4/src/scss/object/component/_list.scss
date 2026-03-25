@@ -1,0 +1,35 @@
+.c-list{
+	&-dot{
+    >li{
+      position: relative;
+      padding-left: 1.2em;
+      &:before{
+        position: absolute;
+        content: "・";
+        left: 0;
+      }
+    }
+	}
+	&-kome{
+    >li{
+      position: relative;
+      padding-left: 1.2em;
+      &:before{
+        position: absolute;
+        content: "※";
+        left: 0;
+      }
+    }
+  }
+  &-count{
+    counter-reset: num;
+    >li{
+      .num{
+        &:before{
+          counter-increment: num;
+          content: '0' counter(num);
+        }
+      }
+    }
+  }
+}

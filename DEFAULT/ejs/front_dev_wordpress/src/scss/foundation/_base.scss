@@ -1,0 +1,19 @@
+.pc {
+  @include pc {
+    display: block;
+  }
+
+  @include sp {
+    display: none;
+  }
+}
+
+.sp {
+  @include pc {
+    display: none;
+  }
+
+  @include sp {
+    display: block;
+  }
+}

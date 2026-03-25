@@ -1,0 +1,208 @@
+// break popint
+@mixin pc($width: 768px) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin pcOver($width: 1201px) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin sp($width: 767px) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin xs($width: 320px) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+
+// vw ----------------------------
+
+@function vw($size, $viewport) {
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}
+
+// vw fz ----------------------------
+
+// 上記のvwを利用したフォントサイズの指定
+@mixin fz($font_size: 10) {
+  font-size: $font_size * 1px; //vw非対応の場合の保険
+  @include pc {
+    font-size: vw($font_size, 1200); //フォントをvw指定
+  }
+  @include pcOver {
+    font-size: $font_size * 1px;
+  }
+  @include sp {
+    font-size: vw($font_size, 750); //フォントをvw指定
+  }
+}
+
+
+// font-size ----------------------------
+@function get-vw($size, $viewport:750){
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}
+@mixin fz-vw($font_size:10){
+  font-size: $font_size * 1px;
+  font-size: get-vw($font_size);
+}
+
+
+
+
+
+
+/*----------------------------
+ padding margin
+----------------------------*/
+
+//例｜5・10の倍数でクラスを作成する
+@mixin space-loop($className, $styleName) {
+	@for $i from 0 through 250 {
+			@if $i % 5 == 0 or $i % 10 == 0 {
+					#{$className + $i} {
+              @include pc{
+                #{$styleName}: #{$i}px;
+                #{$styleName}: #{$i / 1200 * 100}vw;
+              }
+              @include pcOver{
+								#{$styleName}: #{$i}px;
+							}
+							@include sp{
+								#{$styleName}: #{$i / 750 * 100}vw;
+							}
+					}
+			}
+	}
+}
+//padding
+@include space-loop(".u-pt", "padding-top");
+@include space-loop(".u-pb", "padding-bottom");
+@include space-loop(".u-pl", "padding-left");
+@include space-loop(".u-pr", "padding-right");
+//margin
+@include space-loop(".u-mt", "margin-top");
+@include space-loop(".u-mb", "margin-bottom");
+@include space-loop(".u-ml", "margin-left");
+@include space-loop(".u-mr", "margin-right");
+
+
+
+@mixin pt($px_size,$viewsize:1200) {
+  padding-top: $px_size * 1px;
+  @include pc{padding-top: get_vw($px_size, $viewsize);}
+  @include pcOver{padding-top: $px_size * 1px;}
+  @include sp{padding-top: get_vw($px_size, 750);}
+}
+
+@mixin pb($px_size, $viewsize:1200) {
+  padding-bottom: $px_size * 1px;
+  @include pc{padding-bottom: get_vw($px_size, $viewsize);}
+  @include pcOver{padding-bottom: $px_size * 1px;}
+  @include sp{padding-bottom: get_vw($px_size, 750);}
+}
+@mixin mb($px_size, $viewsize:1200) {
+  margin-bottom: $px_size * 1px;
+  @include pc{margin-bottom: get_vw($px_size, $viewsize);}
+  @include pcOver{margin-bottom: $px_size * 1px;}
+  @include sp{margin-bottom: get_vw($px_size, 750);}
+}
+@mixin mt($px_size, $viewsize:1200) {
+  margin-top: $px_size * 1px;
+  @include pc{margin-top: get_vw($px_size, $viewsize);}
+  @include pcOver{margin-top: $px_size * 1px;}
+  @include sp{margin-top: get_vw($px_size, 750);}
+}
+
+////// ▼flex //////
+
+@mixin flex {
+  display: flex;
+}
+
+@mixin flex-w {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin flex-a {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-w-a{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+@mixin flex-w-js {
+	display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@mixin flex-w-jc {
+	display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@mixin flex-w-a-j{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+@mixin hide_txt{
+	text-indent: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+@mixin p-center{
+  position: absolute;
+	width: 100%;
+	height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  filter: alpha(opacity=($opacity * 100));
+}
+
+@mixin bg-gradient($angle:180deg, $start_clr:rgba(0, 66, 221,1), $end_clr: rgba(0, 170, 255,1) ) {
+  background: -moz-linear-gradient((90deg - $angle), $start_clr, $end_clr);
+  background: -webkit-linear-gradient((90deg - $angle), $start_clr, $end_clr);
+  background: linear-gradient($angle, $start_clr, $end_clr);
+}
+@mixin text-gradient($angle: 45deg, $color: rgba(0, 66, 221,1), $amount: rgba(0, 170, 255,1)) {
+  color: $color;
+  background: -webkit-linear-gradient($angle, $color, adjust-hue($color, $amount));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  display: inline-block;
+}
+
+//サイト固有のミックスイン

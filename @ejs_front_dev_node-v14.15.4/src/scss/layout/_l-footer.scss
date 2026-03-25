@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+/*-------------------------------
+  footer
+-------------------------------*/
+
+.l-footer{
+  background-color: $base_color;
+  &_inner{
+    
+  }
+}
+
+.pageTop{
+  position: fixed;
+  z-index: 9999;
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  bottom: 30px;
+  right: 30px;
+  background-color: $base_color;
+  cursor: pointer;
+  @include sp {
+    width: 30px;
+    height: 30px;
+    bottom: 2%;
+    right: 3%;
+  }
+  &:before{
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    top: 40%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 10px solid #FFF;
+    @include sp {
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      border-bottom: 5px solid #FFF;
+    }
+  }
+}
+
+.copyright{
+  color: #FFF;
+  text-align: center;
+  font-size: 12px;
+  padding: 20px 0;
+  @include sp {
+    @include fz-vw(10);
+  }
+}
