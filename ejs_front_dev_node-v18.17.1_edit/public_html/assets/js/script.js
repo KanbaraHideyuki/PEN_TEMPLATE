@@ -357,38 +357,74 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   jsScroll: function() { return /* binding */ jsScroll; }
 /* harmony export */ });
 function jsScroll() {
-  // js-scroll
+  // // js-scroll
+  // var wH = window.innerHeight;
+  // var EffectH = wH / 2 * 1;
+
+  // window.addEventListener('scroll', function () {
+  //     var scTop = window.scrollY || document.documentElement.scrollTop;
+  //     var scBottom = scTop + window.innerHeight;
+  //     var effectPos = scBottom - EffectH;
+  //     var scrollElements = document.querySelectorAll('.js-inview-middle, .js-inview-middle-delay');
+
+  //     scrollElements.forEach(function (element) {
+  //         var thisPos = element.offsetTop;
+
+  //         if (thisPos < effectPos) {
+  //             element.classList.add('show');
+  //             setTimeout(function () {
+  //                 element.classList.add('done');
+  //             }, 250);
+  //         }
+  //     });
+  // });
+
+  // window.addEventListener('load', function () {
+  //     var scTop = window.scrollY || document.documentElement.scrollTop;
+  //     var scBottom = scTop + window.innerHeight;
+  //     var effectPos = scBottom - EffectH;
+  //     var scrollElements = document.querySelectorAll('.js-inview-middle, .js-inview-middle-delay');
+
+  //     scrollElements.forEach(function (element) {
+  //         var thisPos = element.offsetTop;
+
+  //         if (thisPos < effectPos) {
+  //             element.classList.add('show');
+  //             setTimeout(function () {
+  //                 element.classList.add('done');
+  //             }, 250);
+  //         }
+  //     });
+  // });
+
   var wH = window.innerHeight;
-  var EffectH = wH / 8 * 1;
-  window.addEventListener('scroll', function () {
-    var scTop = window.scrollY || document.documentElement.scrollTop;
-    var scBottom = scTop + window.innerHeight;
-    var effectPos = scBottom - EffectH;
-    var scrollElements = document.querySelectorAll('.js-scroll, .js-scroll-delay');
+  var EffectH = wH / 2.5;
+  function updateEffectH() {
+    wH = window.innerHeight;
+    EffectH = wH / 2.5;
+  }
+  function checkInView() {
+    var scrollElements = document.querySelectorAll('.js-inview-middle, .js-inview-middle-delay');
     scrollElements.forEach(function (element) {
-      var thisPos = element.offsetTop;
-      if (thisPos < effectPos) {
+      if (element.classList.contains('done')) return; // 一度doneが付いたらスキップ
+
+      var rect = element.getBoundingClientRect();
+
+      // ビューポートの下端は wH
+      // 「画面下端からEffectH上まで」に要素上端が来たら発火
+      if (rect.top < wH - EffectH) {
         element.classList.add('show');
         setTimeout(function () {
           element.classList.add('done');
         }, 250);
       }
     });
-  });
-  window.addEventListener('load', function () {
-    var scTop = window.scrollY || document.documentElement.scrollTop;
-    var scBottom = scTop + window.innerHeight;
-    var effectPos = scBottom - EffectH;
-    var scrollElements = document.querySelectorAll('.js-scroll, .js-scroll-delay');
-    scrollElements.forEach(function (element) {
-      var thisPos = element.offsetTop;
-      if (thisPos < effectPos) {
-        element.classList.add('show');
-        setTimeout(function () {
-          element.classList.add('done');
-        }, 250);
-      }
-    });
+  }
+  window.addEventListener('scroll', checkInView);
+  window.addEventListener('load', checkInView);
+  window.addEventListener('resize', function () {
+    updateEffectH();
+    checkInView();
   });
 }
 
@@ -429,6 +465,29 @@ function slider() {
     });
   }
 
+  //loop slide
+  var brand_slide = document.querySelector('.loop_slide');
+  if (brand_slide) {
+    var _swiper = new Swiper(brand_slide, {
+      loop: true,
+      slidesPerView: "auto",
+      spaceBetween: 15,
+      speed: 10000,
+      allowTouchMove: false,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false
+        //reverseDirection: true, // 逆回転にするオプション
+      },
+      on: {
+        resize: function resize() {
+          this.update();
+          if (this.autoplay) this.autoplay.start();
+        }
+      }
+    });
+  }
+
   //.js-slideType06_modal
   var slider06_modal = document.querySelector('.js-slideType06_modal');
   if (slider06_modal) {
@@ -438,7 +497,7 @@ function slider() {
     var openModalBtns = document.querySelectorAll(".modalOpen");
     // モーダルを閉じる
     var closeModalBtns = document.querySelectorAll(".modalClose");
-    var _swiper = new Swiper(slider06_modal, {
+    var _swiper2 = new Swiper(slider06_modal, {
       loop: true,
       navigation: {
         nextEl: ".swiper-button-next-Type06_modal",
@@ -452,7 +511,7 @@ function slider() {
       openModalBtn.addEventListener("click", function () {
         // data-modalで設定したスライド番号を取得
         var modalIndex = openModalBtn.getAttribute('data-modal');
-        _swiper.slideTo(modalIndex);
+        _swiper2.slideTo(modalIndex);
         modal.classList.add("is-active");
       });
     });
@@ -485,23 +544,32 @@ function smoothScroll() {
 
       function smoothScroll(targetElement) {
         if (!targetElement) return;
-
-        // 現在のスクロール位置とターゲットの位置を取得
         var startY = window.scrollY;
         var targetY = targetElement.getBoundingClientRect().top + startY - headerHeight;
-        var duration = 500; // スクロールにかける時間（ミリ秒）
+        var duration = 1000;
         var startTime = null;
+
+        //easing設定
+        // function easeInOutCubic(t) {
+        //   return t < 0.5
+        //     ? 4 * t * t * t
+        //     : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        // }
+        //easing設定
+        function easeOutQuart(t) {
+          return 1 - Math.pow(1 - t, 4);
+        }
         function scroll(timestamp) {
           if (startTime === null) startTime = timestamp;
           var elapsed = timestamp - startTime;
-          var progress = Math.min(elapsed / duration, 1); // 0から1の間の進行率
-          var nextScroll = startY + (targetY - startY) * progress;
+          var progress = Math.min(elapsed / duration, 1);
+          var easedProgress = easeOutQuart(progress);
+          var nextScroll = startY + (targetY - startY) * easedProgress;
           window.scrollTo(0, nextScroll);
           if (progress < 1) {
             requestAnimationFrame(scroll);
           } else {
-            window.scrollTo(0, targetY); // 確実にターゲットに到達するため
-            // URLからハッシュを削除
+            window.scrollTo(0, targetY);
             setTimeout(function () {
               history.replaceState(null, null, ' ');
             }, 0);
@@ -550,13 +618,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function tabletViewport() {
   document.addEventListener('DOMContentLoaded', function () {
-    var ua = navigator.userAgent;
     var viewport = document.querySelector("meta[name=viewport]");
-    if (ua.indexOf('iPhone') > -1 || ua.indexOf('iPod') > -1 || ua.indexOf('Android') > -1 && ua.indexOf('Mobile') > -1) {
-      viewport.setAttribute("content", "width=device-width,initial-scale=1");
-    } else {
-      viewport.setAttribute("content", "width=1080");
+    function isTablet() {
+      var ua = navigator.userAgent.toLowerCase();
+      var isTouch = navigator.maxTouchPoints > 1; // タッチ多点対応
+      var width = window.outerWidth;
+      var height = window.outerHeight;
+
+      // iPad/Androidタブレット判定 (UA + サイズ + touch)
+      return /ipad|tablet/i.test(ua) || /android/i.test(ua) && width >= 800 && width <= 1400 || isTouch && width >= 768 && width <= 1400 && height >= 600;
     }
+    function updateViewport() {
+      if (isTablet()) {
+        viewport.setAttribute("content", "width=1180");
+      } else {
+        viewport.setAttribute("content", "width=device-width,initial-scale=1");
+      }
+    }
+    updateViewport();
+    window.addEventListener('resize', updateViewport); // 向き変更対応
   });
 }
 
